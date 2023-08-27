@@ -23,7 +23,7 @@ function App() {
     };
 
     fetchData(API_URL);
-  }, [pageno]);
+  }, [pageno,API_URL]);
 
   const currentPage = (page) => {
     const totalPage = movieApiData.total_pages;
@@ -35,6 +35,10 @@ function App() {
         break;
       case "prev":
         currentPage > 1 ? setpageno(pageno - 1) : setpageno(1);
+        break;
+      default: 
+          setpageno(1);
+          break;
     }
   };
   return (
